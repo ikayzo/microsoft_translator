@@ -14,17 +14,19 @@ module MicrosoftTranslator
       renew_token
     end
 
-    def latest_token
-      # check if current token is still good
-      # get new_token if not
+    def current_token
+      if @token_expires_at < Time.now
+        renew_token
+      end
+      @token
     end
 
 
     def renew_token
        auth_response = RestClient.post(AUTH_URL, auth_params)
        parsed_json = JSON.parse(auth_response.body)
-       @token = parsed_json['access_token']
        @token_expires_at = Time.now + parsed_json['expires_in'].to_i
+       @token = parsed_json['access_token']
     end
 
     private
