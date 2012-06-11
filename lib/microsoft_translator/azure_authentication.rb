@@ -1,4 +1,3 @@
-require 'json'
 module MicrosoftTranslator
   class AzureAuthentication
     AUTH_URL = 'https://datamarket.accesscontrol.windows.net/v2/OAuth2-13'

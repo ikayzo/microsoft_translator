@@ -1,6 +1,8 @@
 require 'microsoft_translator/version'
 require 'uri'
+require 'json'
 require 'rest-client'
+require 'nokogiri'
 
 module MicrosoftTranslator
   autoload :Client, 'microsoft_translator/client'

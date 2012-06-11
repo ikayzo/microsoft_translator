@@ -11,3 +11,9 @@ def stub_auth_request(returned_token=nil)
 
   RestClient.stub(:post).and_return(response)
 end
+
+def stub_translate_request(translated_text=nil)
+  response = stub("response", :body => "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">#{translated_text || "hello world"}</string>")
+
+  RestClient.stub(:get).and_return(response)
+end
