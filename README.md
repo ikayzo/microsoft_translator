@@ -1,4 +1,4 @@
-# MicrosoftTranslator
+# MicrosoftTranslator [![Build Status](https://secure.travis-ci.org/ikayzo/microsoft_translator.png?branch=master)](http://travis-ci.org/ikayzo/microsoft_translator)
 
 Ruby wrapper for Microsoft Translate HTTP API.
 
