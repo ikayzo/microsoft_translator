@@ -4,9 +4,9 @@ require File.expand_path('../lib/microsoft_translator/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Christopher Sass"]
   gem.email         = ["chris@lupinedev.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Ruby library for Microsoft Translate HTTP API}
+  gem.summary       = %q{Use Microsoft Translate API in your ruby program}
+  gem.homepage      = "https://github.com/ikayzo/microsoft_translator"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
