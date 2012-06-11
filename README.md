@@ -19,9 +19,9 @@ Datamarket.
 
 https://datamarket.azure.com/developer/applications/
 
-Also, you shouldn't stress about what to put for the *Redirect URI*. For the purposes of
+Also, you shouldn't stress about what to put for the _*Redirect URI*_. For the purposes of
 this gem you won't be using it so your project's homepage will work just
-fine.  You'll use the *Client ID* and *Client secret* to authenticate
+fine.  You'll use the _*Client ID*_ and _*Client secret*_ to authenticate
 your requests to the API.  Once this is done you'll install it like you
 would any other gem...
 
@@ -55,9 +55,10 @@ translator.translate(spanish,"es","en","text/html")
    # =>  "until then girl"
 ```
 
-That's about it!  Here is a list of all the language codes as a helpful
-reference (not all languages in this list are supported by the Microsoft
-Translate API).  http://www.loc.gov/standards/iso639-2/php/code_list.php
+That's about it!  This is a list of the supported languages by the Microsoft 
+Translate API http://www.microsofttranslator.com/help/?FORM=R5FD and
+here are all the language codes as a helpful reference.
+http://www.loc.gov/standards/iso639-2/php/code_list.php
 
 ## Contributing
 
