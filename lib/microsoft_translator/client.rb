@@ -10,11 +10,27 @@ module MicrosoftTranslator
     end
 
     def translate(text, from_lang, to_lang, content_type)
-      response = RestClient.get(
-        "http://api.microsofttranslator.com/V2/Http.svc/Translate",
-        translate_params(text, from_lang, to_lang, content_type)
-      )
-      parse_xml(response.body)
+      begin
+        response = RestClient.get(
+          "http://api.microsofttranslator.com/V2/Http.svc/Translate",
+          translate_params(text, from_lang, to_lang, content_type)
+        )
+        parse_xml(response.body)
+      rescue RestClient::BadRequest
+        false
+      end
+    end
+
+    def detect(text)
+      begin
+        response = RestClient.get(
+          "http://api.microsofttranslator.com/V2/Http.svc/Detect",
+          detect_params(text)
+        )
+        parse_xml(response.body)
+      rescue RestClient::BadRequest
+        false
+      end
     end
 
     private
@@ -30,6 +46,15 @@ module MicrosoftTranslator
         "from" => from_lang,
         "to" => to_lang,
         "contentType" => content_type
+      })
+      puts hash
+      hash
+    end
+
+    def detect_params(text)
+      hash = base_params
+      hash.store(:params,{
+        "text" => text
       })
       puts hash
       hash
