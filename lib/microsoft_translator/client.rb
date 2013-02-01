@@ -47,7 +47,6 @@ module MicrosoftTranslator
         "to" => to_lang,
         "contentType" => content_type
       })
-      puts hash
       hash
     end
 
@@ -56,7 +55,6 @@ module MicrosoftTranslator
       hash.store(:params,{
         "text" => text
       })
-      puts hash
       hash
     end
 
