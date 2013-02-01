@@ -11,7 +11,6 @@ describe MicrosoftTranslator::Client do
 
   describe "#translate" do
     it "should send a request with the correct params" do
-      pending "better way to test this"
       stub_auth_request
       translator = MicrosoftTranslator::Client.new('id', 'secret')
       spanish = "no corras muchacho"

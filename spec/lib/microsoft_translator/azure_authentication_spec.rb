@@ -56,12 +56,9 @@ describe MicrosoftTranslator::AzureAuthentication do
     end
 
     it "should  get a new token if it has not expired yet" do
-    pending "having trouble testing"
       @auth.should_receive(:renew_token)
       Timecop.travel(@auth.token_expires_at + 1000)
-      stub_auth_request('new_token')
-      token = @auth.current_token
-      token.should eq('new_token')
+      @auth.current_token
     end
   end
 
