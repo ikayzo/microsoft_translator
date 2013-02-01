@@ -45,7 +45,9 @@ Create a MicrosoftTranslator::Client with your Client ID & secret.
 translator = MicrosoftTranslator::Client.new('your_client_id', 'your_client_secret')
 ```
 
-To translate pass in the foreign text allong with the language codes for
+### Translation
+
+To translate pass in the foreign text along with the language codes for
 the language you are going from/to and the content type. The content
 type is either "text/plain" or "text/html"
 
@@ -55,6 +57,15 @@ translator.translate(spanish,"es","en","text/html")
    # =>  "until then girl"
 ```
 
+### Language Detection
+
+To detect the language simply pass in the foreign text. The language
+code will be returned.
+
+```ruby
+translator.detect("Quiero un burrito")
+   # =>  "es"
+```
 That's about it!  This is a list of the supported languages by the Microsoft 
 Translate API http://www.microsofttranslator.com/help/?FORM=R5FD and
 here are all the language codes as a helpful reference.
