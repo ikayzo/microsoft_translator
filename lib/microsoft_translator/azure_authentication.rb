@@ -15,7 +15,7 @@ module MicrosoftTranslator
 
     def current_token
       if @token_expires_at < Time.now
-        renew_token
+        self.renew_token
       end
       @token
     end

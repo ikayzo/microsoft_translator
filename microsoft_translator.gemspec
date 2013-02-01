@@ -14,8 +14,9 @@ Gem::Specification.new do |gem|
   gem.name          = "microsoft_translator"
   gem.require_paths = ["lib"]
   gem.version       = MicrosoftTranslator::VERSION
-  gem.add_runtime_dependency "rest-client", [">= 1.6.0"]
-  gem.add_runtime_dependency "nokogiri", [">= 1.4.0"]
-  gem.add_development_dependency "rspec", [">= 2.0.0"]
-  gem.add_development_dependency "timecop", [">= 0.3.5"]
+  gem.add_runtime_dependency "rest-client", ["~> 1.6.0"]
+  gem.add_runtime_dependency "nokogiri", ["~> 1.5.6"]
+  gem.add_development_dependency "rspec", ["~> 2.12.0"]
+  gem.add_development_dependency "timecop", ["~> 0.3.5"]
+  gem.add_development_dependency "webmock", ["~> 1.9.0"]
 end
