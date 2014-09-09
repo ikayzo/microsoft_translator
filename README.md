@@ -57,6 +57,16 @@ translator.translate(spanish,"es","en","text/html")
    # =>  "until then girl"
 ```
 
+### Translate Array
+
+To translate an array of strings pass in the array along with the language codes for the language you are going from/to.
+
+```ruby
+array = ["hasta luego muchacha", "no corras muchacho"]
+translator.translate_array(array, "es", "en")
+   # =>  ["until then girl", "do not run boy"]
+```
+
 ### Language Detection
 
 To detect the language simply pass in the foreign text. The language
