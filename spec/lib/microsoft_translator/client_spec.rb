@@ -19,4 +19,15 @@ describe MicrosoftTranslator::Client do
       translator.translate(spanish,"es","en","text/html").should eq("don't run boy")
     end
   end
+
+  describe "#translate_array" do
+    it "should send a request with the correct params" do
+      pending "better way to test this"
+      stub_auth_request
+      translator = MicrosoftTranslator::Client.new('id', 'secret')
+      array = ["hasta luego muchacha", "no corras muchacho"]
+      stub_translate_request(["until then girl", "do not run boy"])
+      translator.translate_array(array, "es", "en").should eq(["until then girl", "do not run boy"])
+    end
+  end
 end
