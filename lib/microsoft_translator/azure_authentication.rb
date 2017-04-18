@@ -1,15 +1,13 @@
 module MicrosoftTranslator
   class AzureAuthentication
-    AUTH_URL = 'https://datamarket.accesscontrol.windows.net/v2/OAuth2-13'
+    AUTH_URL = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
     API_SCOPE = 'http://api.microsofttranslator.com'
-    GRANT_TYPE = 'client_credentials'
 
     attr_reader :token
     attr_reader :token_expires_at
 
-    def initialize(client_id, client_secret)
-      @client_id = client_id
-      @client_secret = client_secret
+    def initialize(subscription_id)
+      @subscription_id = subscription_id
       renew_token
     end
 
@@ -22,20 +20,17 @@ module MicrosoftTranslator
 
 
     def renew_token
-       auth_response = RestClient.post(AUTH_URL, auth_params)
-       parsed_json = JSON.parse(auth_response.body)
+       auth_response = RestClient.post(AUTH_URL, "", auth_header).body
        @token_expires_at = Time.now + parsed_json['expires_in'].to_i
-       @token = parsed_json['access_token']
+       @token = auth_response
     end
 
     private
 
-    def auth_params
+    def auth_header
       {
-      "client_id" => @client_id,
-      "client_secret" => URI.encode(@client_secret),
-      "scope" => URI.encode(API_SCOPE),
-      "grant_type" => GRANT_TYPE
+        :"Ocp-Apim-Subscription-Key"  => @subscription_id,
+        :content_type => "application/json"
       }
 
     end
