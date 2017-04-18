@@ -32,7 +32,6 @@ module MicrosoftTranslator
         :"Ocp-Apim-Subscription-Key"  => @subscription_id,
         :content_type => "application/json"
       }
-
     end
   end
 end
