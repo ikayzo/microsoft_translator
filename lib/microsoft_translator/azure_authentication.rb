@@ -21,7 +21,7 @@ module MicrosoftTranslator
 
     def renew_token
        auth_response = RestClient.post(AUTH_URL, "", auth_header).body
-       @token_expires_at = Time.now + parsed_json['expires_in'].to_i
+       @token_expires_at = Time.now + 10 * 60
        @token = auth_response
     end
 
